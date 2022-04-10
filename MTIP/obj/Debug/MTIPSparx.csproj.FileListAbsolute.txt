@@ -1,0 +1,10 @@
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\bin\Debug\MTIP.dll
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\bin\Debug\MTIP.pdb
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\bin\Debug\MTIP.tlb
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\obj\Debug\MTIPSparx.csproj.AssemblyReference.cache
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\obj\Debug\MTIP.Forms.MTIPImportForm.resources
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\obj\Debug\MTIP.Forms.MTIPPluginMenuForm.resources
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\obj\Debug\MTIPSparx.csproj.GenerateResource.cache
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\obj\Debug\MTIPSparx.csproj.CoreCompileInputs.cache
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\obj\Debug\MTIP.dll
+C:\Users\klm31771\Documents\Huddle\MTIPPlugin\MTIP\MTIP\obj\Debug\MTIP.pdb
