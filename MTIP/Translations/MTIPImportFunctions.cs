@@ -655,6 +655,7 @@ namespace MTIP.Translations
                     }
                     else
                     {
+                        string eaType = "";
                         EA.Package parentPkg = repository.GetPackageByGuid(parsedXml[parentId].GetEAID());
                         EA.Element childElement = parentPkg.Elements.AddNew(childItem.GetName(), GetEAType(childItem.GetElementType(), stereotype));
 
@@ -752,11 +753,12 @@ namespace MTIP.Translations
             {
                 if (childItem.GetElementType() == SysmlConstants.INITIALPSEUDOSTATE) childElement.Subtype = 3;
                 if (childItem.GetElementType() == SysmlConstants.FINALSTATE) childElement.Subtype = 4;
-                if (childItem.GetElementType() == SysmlConstants.HISTORYNODE) childElement.Subtype = 5;
+                if (childItem.GetElementType() == SysmlConstants.SHALLOWHISTORY) childElement.Subtype = 5;
                 if (childItem.GetElementType() == SysmlConstants.CHOICEPSUEDOSTATE) childElement.Subtype = 11;
                 if (childItem.GetElementType() == SysmlConstants.TERMINATE) childElement.Subtype = 12;
                 if (childItem.GetElementType() == SysmlConstants.ENTRYPOINT) childElement.Subtype = 13;
                 if (childItem.GetElementType() == SysmlConstants.EXITPOINT) childElement.Subtype = 14;
+                if (childItem.GetElementType() == SysmlConstants.DEEPHISTORY) childElement.Subtype = 15;
                 if (childItem.GetElementType() == SysmlConstants.ACTIVITYINITIALNODE) childElement.Subtype = 100;
                 if (childItem.GetElementType() == SysmlConstants.ACTIVITYFINALNODE) childElement.Subtype = 101;
                 if (childItem.GetElementType() == SysmlConstants.FLOWFINALNODE) childElement.Subtype = 102;
@@ -1796,7 +1798,7 @@ namespace MTIP.Translations
                 if (stereotype == stereotypeConstants.constraintBlockCap || stereotype == stereotypeConstants.constraintBlock) type = blockConstants.constraintBlock;
                 else type = blockConstants.block;
             }
-            else if (sysmlType == SysmlConstants.ACCEPTEVENTACTION) type = activityConstants.action;
+            else if (sysmlType == SysmlConstants.ACCEPTEVENTACTION) type = activityConstants.acceptEventAction;
             else if (sysmlType == SysmlConstants.ACTION) type = activityConstants.action;
             else if (sysmlType == SysmlConstants.ACTIONPIN) type = activityConstants.actionPin;
             else if (sysmlType == SysmlConstants.ACTIVITYINITIALNODE) type = activityConstants.stateNode;
@@ -1807,8 +1809,9 @@ namespace MTIP.Translations
             else if (sysmlType == SysmlConstants.BUSINESSREQUIREMENT) type = requirementConstants.requirement;
             else if (sysmlType == SysmlConstants.CLASSIFIERBEHAVIORPROPERTY) type = internalBlockConstants.property;
             else if (sysmlType == SysmlConstants.CALLBEHAVIORACTION) type = activityConstants.callBehaviorAction;
-            else if (sysmlType == SysmlConstants.CALLOPERATIONACTION) type = activityConstants.action;
+            else if (sysmlType == SysmlConstants.CALLOPERATIONACTION) type = activityConstants.callOperationAction;
             else if (sysmlType == SysmlConstants.CENTRALBUFFERNODE) type = activityConstants.centralBufferNode;
+            else if (sysmlType == SysmlConstants.CHANGE) type = activityConstants.change;
             else if (sysmlType == SysmlConstants.CHOICEPSUEDOSTATE) type = activityConstants.stateNode;
             else if (sysmlType == SysmlConstants.CLASS) type = profileConstants.classType;
             else if (sysmlType == SysmlConstants.CLASSIFICATION) type = profileConstants.part;
@@ -1819,9 +1822,12 @@ namespace MTIP.Translations
             else if (sysmlType == SysmlConstants.CONSTRAINTPARAMETER) type = activityConstants.property;
             else if (sysmlType == SysmlConstants.CONDITIONALNODE) type = activityConstants.conditionalNode;
             else if (sysmlType == SysmlConstants.COMBINEDFRAGMENT) type = sequenceConstants.interactionFragment;
+            else if (sysmlType == SysmlConstants.CREATEOBJECTACTION) type = activityConstants.createObjectAction;
             else if (sysmlType == SysmlConstants.DATASTORENODE) type = profileConstants.objectType;
             else if (sysmlType == SysmlConstants.DECISIONNODE) type = activityConstants.decision;
+            else if (sysmlType == SysmlConstants.DEEPHISTORY) type = stateMachineConstants.stateNode;
             else if (sysmlType == SysmlConstants.DESIGNCONSTRAINT) type = requirementConstants.designConstraint;
+            else if (sysmlType == SysmlConstants.DESTROYOBJECTACTION) type = activityConstants.destroyObjectAction;
             else if (sysmlType == SysmlConstants.DOMAIN) type = blockConstants.block;
             else if (sysmlType == SysmlConstants.ENTRYPOINT) type = stateMachineConstants.entryPoint;
             else if (sysmlType == SysmlConstants.ENUMERATION) type = blockConstants.enumeration;
@@ -1840,8 +1846,8 @@ namespace MTIP.Translations
             else if (sysmlType == SysmlConstants.FLOWFINALNODE) type = activityConstants.stateNode;
             else if (sysmlType == SysmlConstants.FLOWPORT) type = blockConstants.flowPort;
             else if (sysmlType == SysmlConstants.FUNCTIONALREQUIREMENT) type = requirementConstants.functionalRequirement;
-            else if (sysmlType == SysmlConstants.HISTORYNODE) type = activityConstants.stateNode;
             else if (sysmlType == SysmlConstants.HYPERLINK) type = profileConstants.text;
+            else if (sysmlType == SysmlConstants.INFORMATIONITEM) type = activityConstants.informationItem;
             else if (sysmlType == SysmlConstants.INITIALPSEUDOSTATE) type = activityConstants.stateNode;
             else if (sysmlType == SysmlConstants.INPUTPIN) type = activityConstants.actionPin;
             else if (sysmlType == SysmlConstants.INTERACTION) type = sequenceConstants.interaction;
@@ -1875,10 +1881,12 @@ namespace MTIP.Translations
             else if (sysmlType == SysmlConstants.PERFORMANCEREQUIREMENT) type = requirementConstants.performanceRequirement;
             else if (sysmlType == SysmlConstants.PHYSICALREQUIREMENT) type = requirementConstants.physicalRequirement;
             else if (sysmlType == SysmlConstants.PORT) type = blockConstants.port;
-            else if (sysmlType == SysmlConstants.SENDSIGNALACTION) type = activityConstants.action;
+            else if (sysmlType == SysmlConstants.SENDSIGNALACTION) type = activityConstants.sendSignalAction;
+            else if (sysmlType == SysmlConstants.SHALLOWHISTORY) type = stateMachineConstants.stateNode;
             else if (sysmlType == SysmlConstants.SIGNAL) type = blockConstants.signal;
             else if (sysmlType == SysmlConstants.STEREOTYPE) type = profileConstants.classType;
             else if (sysmlType == SysmlConstants.STATE) type = stateMachineConstants.state;
+            else if (sysmlType == SysmlConstants.STATEINVARIANT) type = sequenceConstants.interactionState;
             else if (sysmlType == SysmlConstants.STATEMACHINE) type = stateMachineConstants.stateMachine;
             else if (sysmlType == SysmlConstants.SUBSYSTEM) type = blockConstants.block;
             else if (sysmlType == SysmlConstants.SYNCHRONIZATION) type = stateMachineConstants.synchronization;
@@ -1932,6 +1940,7 @@ namespace MTIP.Translations
             else if (type == SysmlConstants.CENTRALBUFFERNODE) elementType = SysmlConstants.SYSMLCENTRALBUFFERNODE;
             else if (type == SysmlConstants.COLLABORATION) elementType = SysmlConstants.SYSMLCOLLABORATION;
             else if (type == SysmlConstants.CONSTRAINT) elementType = SysmlConstants.SYSMLCONSTRAINT;
+            else if (type == SysmlConstants.CHANGE) elementType = SysmlConstants.SYSMLCHANGE;
             else if (type == SysmlConstants.DECISION) elementType = SysmlConstants.SYSMLDECISIONNODE;
             else if (type == SysmlConstants.ENTRYPOINT) elementType = SysmlConstants.SYSMLENTRYPOINT;
             else if (type == SysmlConstants.ENUMERATION) elementType = SysmlConstants.SYSMLENUMERATION;
@@ -1945,6 +1954,8 @@ namespace MTIP.Translations
             else if (type == SysmlConstants.FUNCTIONALREQUIREMENT) elementType = SysmlConstants.SYSMLFUNCTIONALREQUIREMENT;
             else if (type == SysmlConstants.INTERFACEREQUIREMENT) elementType = SysmlConstants.SYSMLINTERFACEREQUIREMENT;
             else if (type == SysmlConstants.INTERACTIONFRAGMENT) elementType = SysmlConstants.SYSMLCOMBINEDFRAGMENT;
+            else if (type == SysmlConstants.INTERACTIONSTATE && subtype == 0) elementType = SysmlConstants.SYSMLSTATEINVARIANT;
+            else if (type == SysmlConstants.INFORMATIONITEM) elementType = SysmlConstants.SYSMLINFORMATIONITEM;
             else if (type == SysmlConstants.PERFORMANCEREQUIREMENT) elementType = SysmlConstants.SYSMLPERFORMANCEREQUIREMENT;
             else if (type == SysmlConstants.PHYSICALREQUIREMENT) elementType = SysmlConstants.SYSMLPHYSICALREQUIREMENT;
             else if (type == SysmlConstants.DESIGNCONSTRAINT) elementType = SysmlConstants.SYSMLDESIGNCONSTRAINT;
@@ -1978,11 +1989,12 @@ namespace MTIP.Translations
 
                 if (subtype == 3) elementType = SysmlConstants.SYSMLINITIALPSEUDOSTATE;
                 else if (subtype == 4) elementType = SysmlConstants.SYSMLFINALSTATE;
-                else if (subtype == 5) elementType = SysmlConstants.SYSMLHISTORYNODE;
+                else if (subtype == 5) elementType = SysmlConstants.SYSMLSHALLOWHISTORY;
                 else if (subtype == 11) elementType = SysmlConstants.SYSMLCHOICEPSEUDOSTATE;
                 else if (subtype == 12) elementType = SysmlConstants.SYSMLTERMINATE;
                 else if (subtype == 13) elementType = SysmlConstants.SYSMLENTRYPOINT;
                 else if (subtype == 14) elementType = SysmlConstants.SYSMLEXITPOINT;
+                else if (subtype == 15) elementType = SysmlConstants.SYSMLDEEPHISTORY;
                 else if (subtype == 100) elementType = SysmlConstants.SYSMLINITIALNODE;
                 else if (subtype == 101) elementType = SysmlConstants.SYSMLACTIVITYFINALNODE;
                 else if (subtype == 102) elementType = SysmlConstants.SYSMLFLOWFINALNODE;

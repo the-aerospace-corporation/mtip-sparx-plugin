@@ -63,7 +63,7 @@ namespace MTIP.Translations
             selectOutputDir();
             MessageBox.Show("Beginning export. This might take a while.", "Begin Export", MessageBoxButtons.OK);
 
-            UnpackagePackage(selectedPackage, xmlDocument, null, null);
+            UnpackagePackage(selectedPackage, xmlDocument, null, null, true);
 
             // Save XML
             XmlWriterSettings settings = new XmlWriterSettings()
@@ -98,7 +98,7 @@ namespace MTIP.Translations
 
 
         }
-        public void UnpackagePackage(EA.Package package, XmlDocument xmlDocument, string parentGuid, string parentType)
+        public void UnpackagePackage(EA.Package package, XmlDocument xmlDocument, string parentGuid, string parentType, bool isRootNode)
         {
             // Get package SysML type
             XmlElement typeElement = xmlDocument.CreateElement(hudsConstants.type);
@@ -151,7 +151,7 @@ namespace MTIP.Translations
             dataElement.AppendChild(attributesElement);
 
             // Add relationships to the data node
-            if (parentGuid != null)
+            if (parentGuid != null || isRootNode == false)
             {
                 XmlElement relationshipsElement = xmlDocument.CreateElement(relationshipConstants.relationships);
                 relationshipsElement.SetAttribute(hudsConstants.dtype, hudsConstants.dict);
@@ -184,7 +184,7 @@ namespace MTIP.Translations
             {
                 foreach (EA.Package childPackage in package.Packages)
                 {
-                    UnpackagePackage(childPackage, xmlDocument, packageGuid, packageType);
+                    UnpackagePackage(childPackage, xmlDocument, packageGuid, packageType, false);
                 }
             }
             if (package.Elements != null)
@@ -214,8 +214,8 @@ namespace MTIP.Translations
             XmlElement relationshipsElement = xmlDocument.CreateElement(hudsConstants.relationships);
             relationshipsElement.SetAttribute(hudsConstants.dtype, hudsConstants.dict);
 
-            string elementType = GetSysMLType(element.Type, element.Stereotype, element.Subtype, element.MetaType);
 
+            string elementType = GetSysMLType(element.Type, element.Stereotype, element.Subtype, element.MetaType);
             if (elementType == SysmlConstants.SYSMLOBJECT && element.ClassfierID != 0) elementType = SysmlConstants.SYSMLINSTANCESPECIFICATION;
             // Check if Initial Node is from Activity or State Machine
             if (elementType == SysmlConstants.SYSMLINITIALPSEUDOSTATE && parentType == SysmlConstants.SYSMLACTIVITY) elementType = SysmlConstants.SYSMLINITIALNODE;
@@ -780,6 +780,7 @@ namespace MTIP.Translations
         public void UnpackageConnector(Connector connector, XmlDocument xmlDocument,
                                        string elementGuid, string elementName, string parentGuid, string parentType)
         {
+            Tools.Log(connector.Name + " - " + connector.Type + " - " + connector.MetaType + " - " + connector.Subtype + " - " + connector.Stereotype);
             try
             {
                 XmlElement dataElement = xmlDocument.CreateElement(hudsConstants.data);
@@ -1109,6 +1110,7 @@ namespace MTIP.Translations
             else if (type == SysmlConstants.BOUNDARY) elementType = SysmlConstants.SYSMLBOUNDARY;
             else if (type == SysmlConstants.SIGNAL) elementType = SysmlConstants.SYSMLSIGNAL;
             else if (type == SysmlConstants.CENTRALBUFFERNODE) elementType = SysmlConstants.SYSMLCENTRALBUFFERNODE;
+            else if (type == SysmlConstants.CHANGE) elementType = SysmlConstants.SYSMLCHANGE;
             else if (type == SysmlConstants.COLLABORATION) elementType = SysmlConstants.SYSMLCOLLABORATION;
             else if (type == SysmlConstants.CONSTRAINT) elementType = SysmlConstants.SYSMLCONSTRAINT;
             else if (type == SysmlConstants.DECISION) elementType = SysmlConstants.SYSMLDECISIONNODE;
@@ -1124,6 +1126,8 @@ namespace MTIP.Translations
             else if (type == SysmlConstants.FUNCTIONALREQUIREMENT) elementType = SysmlConstants.SYSMLFUNCTIONALREQUIREMENT;
             else if (type == SysmlConstants.INTERFACEREQUIREMENT) elementType = SysmlConstants.SYSMLINTERFACEREQUIREMENT;
             else if (type == SysmlConstants.INTERACTIONFRAGMENT) elementType = SysmlConstants.SYSMLCOMBINEDFRAGMENT;
+            else if (type == SysmlConstants.INTERACTIONSTATE && subtype == 0) elementType = SysmlConstants.SYSMLSTATEINVARIANT;
+            else if (type == SysmlConstants.INFORMATIONITEM) elementType = SysmlConstants.SYSMLINFORMATIONITEM;
             else if (type == SysmlConstants.PERFORMANCEREQUIREMENT) elementType = SysmlConstants.SYSMLPERFORMANCEREQUIREMENT;
             else if (type == SysmlConstants.PHYSICALREQUIREMENT) elementType = SysmlConstants.SYSMLPHYSICALREQUIREMENT;
             else if (type == SysmlConstants.DESIGNCONSTRAINT) elementType = SysmlConstants.SYSMLDESIGNCONSTRAINT;
@@ -1157,11 +1161,12 @@ namespace MTIP.Translations
 
                 if (subtype == 3) elementType = SysmlConstants.SYSMLINITIALPSEUDOSTATE;
                 else if (subtype == 4) elementType = SysmlConstants.SYSMLFINALSTATE;
-                else if (subtype == 5) elementType = SysmlConstants.SYSMLHISTORYNODE;
+                else if (subtype == 5) elementType = SysmlConstants.SYSMLSHALLOWHISTORY;
                 else if (subtype == 11) elementType = SysmlConstants.SYSMLCHOICEPSEUDOSTATE;
                 else if (subtype == 12) elementType = SysmlConstants.SYSMLTERMINATE;
                 else if (subtype == 13) elementType = SysmlConstants.SYSMLENTRYPOINT;
                 else if (subtype == 14) elementType = SysmlConstants.SYSMLEXITPOINT;
+                else if (subtype == 15) elementType = SysmlConstants.SYSMLDEEPHISTORY;
                 else if (subtype == 100) elementType = SysmlConstants.SYSMLINITIALNODE;
                 else if (subtype == 101) elementType = SysmlConstants.SYSMLACTIVITYFINALNODE;
                 else if (subtype == 102) elementType = SysmlConstants.SYSMLFLOWFINALNODE;
@@ -1169,11 +1174,15 @@ namespace MTIP.Translations
             else if (type == SysmlConstants.STATE) elementType = SysmlConstants.SYSMLSTATE;
             else if (type == SysmlConstants.CLASS) elementType = SysmlConstants.SYSMLCLASS;
             else if (type == SysmlConstants.STATEMACHINE) elementType = SysmlConstants.SYSMLSTATEMACHINE;
-            else if (type == SysmlConstants.PART && stereotype == "") elementType = SysmlConstants.SYSMLPARTPROPERTY;
-            else if (type == SysmlConstants.PART && stereotype == stereotypeConstants.partProperty) elementType = SysmlConstants.SYSMLPARTPROPERTY;
-            else if (type == SysmlConstants.PART && stereotype == stereotypeConstants.property) elementType = SysmlConstants.SYSMLPARTPROPERTY;
-            else if (type == SysmlConstants.PART && stereotype == stereotypeConstants.constraintProperty) elementType = SysmlConstants.SYSMLCONSTRAINTPROPERTY;
-            else if (type == SysmlConstants.PART && stereotype == stereotypeConstants.classification) elementType = SysmlConstants.SYSMLCLASSIFICATION;
+            else if(type == SysmlConstants.PART)
+            {
+                if (stereotype == "") elementType = SysmlConstants.SYSMLPARTPROPERTY;
+                else if (stereotype == stereotypeConstants.partProperty) elementType = SysmlConstants.SYSMLPARTPROPERTY;
+                else if (stereotype == stereotypeConstants.property) elementType = SysmlConstants.SYSMLPARTPROPERTY;
+                else if (stereotype == stereotypeConstants.constraintProperty) elementType = SysmlConstants.SYSMLCONSTRAINTPROPERTY;
+                else if (stereotype == stereotypeConstants.classification) elementType = SysmlConstants.SYSMLCLASSIFICATION;
+
+            }
             else if (type == SysmlConstants.REQUIREDINTERFACE) elementType = SysmlConstants.SYSMLREQUIREDINTERFACE;
             else if (type == SysmlConstants.NOTE) elementType = SysmlConstants.SYSMLNOTE;
             else if (type == SysmlConstants.PACKAGE) elementType = SysmlConstants.SYSMLPACKAGE;
@@ -1183,6 +1192,9 @@ namespace MTIP.Translations
                 if (stereotype == stereotypeConstants.allocated) elementType = SysmlConstants.SYSMLALLOCATED;
                 else if (type == SysmlConstants.ACTION && metatype == metatypeConstants.acceptEventAction) elementType = SysmlConstants.SYSMLACCEPTEVENTACTION;
                 else if (type == SysmlConstants.ACTION && metatype == metatypeConstants.callBehaviorAction) elementType = SysmlConstants.SYSMLCALLBEHAVIORACTION;
+                else if (type == SysmlConstants.ACTION && metatype == metatypeConstants.createObjectAction) elementType = SysmlConstants.SYSMLCREATEOBJECTACTION;
+                else if (type == SysmlConstants.ACTION && metatype == metatypeConstants.destroyObjectAction) elementType = SysmlConstants.SYSMLDESTROYOBJECTACTION;
+                else if (type == SysmlConstants.ACTION && metatype == metatypeConstants.callOperationAction) elementType = SysmlConstants.SYSMLCALLOPERATIONACTION;
                 else if (type == SysmlConstants.ACTION && metatype == metatypeConstants.opaqueAction) elementType = SysmlConstants.SYSMLOPAQUEACTION;
                 else if (type == SysmlConstants.ACTION && metatype == metatypeConstants.sendSignalAction) elementType = SysmlConstants.SYSMLSENDSIGNALACTION;
                 else if (type == SysmlConstants.ACTION) elementType = SysmlConstants.SYSMLACTION;

@@ -21,12 +21,14 @@ namespace MTIP.Constants
         public string interactionFragment;
         public string sequence;
         public string interaction;
+        public string interactionState;
         public SequenceConstants()
         {
             collaboration = "Collaboration";
             interactionFragment = "InteractionFragment";
             sequence = "Sequence";
             interaction = "Interaction";
+            interactionState = "InteractionState ";
         }
     }
 }

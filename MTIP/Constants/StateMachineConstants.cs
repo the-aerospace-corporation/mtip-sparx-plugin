@@ -25,6 +25,8 @@ namespace MTIP.Constants
         public string stateMachine;
         public string stateNode;
         public string trigger;
+        public string deepHistory;
+        public string shallowHistory;
         public StateMachineConstants()
         {
             entryPoint = "EntryPoint";

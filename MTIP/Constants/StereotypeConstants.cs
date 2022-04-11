@@ -59,6 +59,7 @@ namespace MTIP.Constants
         public string external;
         public string model;
         public string profile;
+        public string adjunctProperty;
         public StereotypeConstants()
         {
             //Block Stereotypes
@@ -103,6 +104,7 @@ namespace MTIP.Constants
             external = "External";
             model = "model";
             profile = "profile";
+            adjunctProperty = "AdjunctProperty";
         }
     }
 }

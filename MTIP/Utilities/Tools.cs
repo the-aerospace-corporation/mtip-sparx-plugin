@@ -79,7 +79,8 @@ namespace MTIP.Utilities
         {
 
             //string logDirPath = Path.Combine(Path.GetTempPath(), LOG_DIRNAME);            
-            string logDirPath = Path.Combine("path/to/directory", LOG_DIRNAME);
+            string logDirPath = Path.Combine("C:/users/klm31771/desktop/", LOG_DIRNAME);
+
             //string logDirPath = Path.Combine("./", LOG_DIRNAME);            
 
             if (!Directory.Exists(logDirPath))

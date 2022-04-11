@@ -24,6 +24,9 @@ namespace MTIP.Constants
         public string callBehaviorAction;
         public string opaqueAction;
         public string sendSignalAction;
+        public string callOperationAction;
+        public string createObjectAction;
+        public string destroyObjectAction;
         public MetatypeConstants()
         {
             pseudostate = "Pseudostate";
@@ -31,6 +34,9 @@ namespace MTIP.Constants
             callBehaviorAction = "CallBehaviorAction";
             opaqueAction = "OpaqueAction";
             sendSignalAction = "SendSignalAction";
+            callOperationAction = "CallOperationAction";
+            createObjectAction = "CreateObjectAction";
+            destroyObjectAction = "DestroyObjectAction";
         }
     }
 }

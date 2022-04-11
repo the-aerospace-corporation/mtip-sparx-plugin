@@ -23,121 +23,182 @@ namespace MTIP.Constants
         public static string RELATIONSHIP = "Relationship";
         public static string DIAGRAM = "Diagram";
 
-        //Sysml Element constants
-        public static string ACCEPTEVENTACTION = "AcceptEventAction";
+        // Diagrams
+        // ActivityDiagram
+        // BlockDefinitionDiagram
+        // InternalBlockDiagram
+        // ClassDiagram
+        // PackageDiagram
+        // ParametricDiagram
+        // ProfileDiagram
+        // SequenceDiagram
+        // StateMachineDiagram
+
+
+
+
+        /* SYSML ACTIVITY ELEMENT CONSTANTS */
+        public static string ACCEPTEVENTACTION = "AccepctEventAction";
         public static string ACTION = "Action";
-        public static string ACTIONPIN = "ActionPin";
         public static string ACTIVITY = "Activity";
-        public static string ACTIVITYINITIALNODE = "InitialNode";
         public static string ACTIVITYFINALNODE = "ActivityFinalNode";
+        public static string ACTIVITYINITIALNODE = "InitialNode";
         public static string ACTIVITYPARAMETER = "ActivityParameter";
         public static string ACTIVITYPARAMETERNODE = "ActivityParameterNode"; // Sysml specifies as ActivityParameterNode
         public static string ACTIVITYPARTITION = "ActivityPartition";
-        public static string ACTOR = "Actor";
-        public static string BLOCK = "Block";
-        public static string BOUNDARY = "Boundary";
-        public static string BUSINESSREQUIREMENT = "BusinessRequirement";
         public static string CALLBEHAVIORACTION = "CallBehaviorAction";
+        public static string CALLOBJECTACTION = "CreateObjectAction ";
         public static string CALLOPERATIONACTION = "CallOperationAction";
         public static string CENTRALBUFFERNODE = "CentralBufferNode";
-        public static string CHOICEPSUEDOSTATE = "ChoicePseudoState";
-        public static string CLASS = "Class";
-        public static string CLASSIFICATION = "Classification";
-        public static string CLASSIFIERBEHAVIORPROPERTY = "ClassifierBehaviorProperty";
-        public static string COLLABORATION = "Collaboration";
-        public static string COMBINEDFRAGMENT = "CombinedFragment";
+        public static string CHANGE = "Change";
         public static string CONDITIONALNODE = "ConditionalNode";
-        public static string CONSTRAINT = "Constraint";
-        public static string CONSTRAINTBLOCK = "ConstraintBlock";
-        public static string CONSTRAINTPARAMETER = "ConstraintParameter";
         public static string CREATEOBJECTACTION = "CreateObjectAction";
         public static string DATASTORENODE = "DataStoreNode";
         public static string DECISION = "Decision";
         public static string DECISIONNODE = "DecisionNode";
-        public static string DESIGNCONSTRAINT = "DesignConstraint";
         public static string DESTROYOBJECTACTION = "DestroyObjectAction";
-        public static string EXCEPTIONHANDLER = "ExceptionHandler";
-        public static string DOMAIN = "Domain";
-        public static string ENTRYPOINT = "EntryPoint";
-        public static string ENUMERATION = "Enumeration";
         public static string EVENT = "Event";
-        public static string EXITPOINT = "ExitPoint";
-        public static string EXTERNAL = "External";
-        public static string EXTENDEDREQUIREMENT = "ExtendedRequirement";
-        public static string FINALSTATE = "FinalState";
         public static string FLOWFINALNODE = "FlowFinalNode";
-        public static string FLOWPORT = "FlowPort";
-        public static string FLOWPROPERTY = "FlowProperty";
-        public static string FLOWSPECIFICATION = "FlowSpecification";
         public static string FORK = "Fork";
+        public static string FORKNODE = "ForkNode";
         public static string FORKVERTICAL = "ForkVertical";
         public static string FORKHORIZONTAL = "ForkHorizontal";
-        public static string FORKNODE = "ForkNode";
-        public static string FULLPORT = "FullPort";
-        public static string FUNCTIONALREQUIREMENT = "FunctionalRequirement";
-        public static string HISTORYNODE = "HistoryNode";
-        public static string HYPERLINK = "Hyperlink";
-        public static string INSTANCESPECIFICATION = "InstanceSpecification";
-        public static string INTERACTION = "Interaction";
-        public static string INTERACTIONFRAGMENT = "InteractionFragment";
-        public static string INTERACTIONUSE = "InteractionUse";
-        public static string INTERFACE = "Interface";
-        public static string INTERFACEBLOCK = "InterfaceBlock";
-        public static string INTERFACEREQUIREMENT = "InterfaceRequirement";
         public static string INITIALNODE = "InitialNode";
-        public static string INITIALPSEUDOSTATE = "InitialPseudoState";
-        public static string INTERRUPTIBLEACTIVITYREGION = "InterruptibleActivityRegion";
         public static string INPUTPIN = "InputPin";
-        public static string JOINNODE = "JoinNode";
+        public static string INTERRUPTIBLEACTIVITYREGION = "InterruptibleActivityRegion";
         public static string JOIN = "Join";
-        public static string LIFELINE = "Lifeline";
+        public static string JOINNODE = "JoinNode";
         public static string LOOPNODE = "LoopNode";
-        public static string METACLASS = "Metaclass";
         public static string MERGENODE = "MergeNode";
-        public static string MODEL = "Model";
-        public static string NOTE = "Note";
         public static string OBJECT = "Object";
         public static string OBJECTNODE = "ObjectNode";
-        public static string OBJECTIVEFUNCTION = "ObjectiveFunction";
-        public static string OPERATION = "Operation";
         public static string OPAQUEACTION = "OpaqueAction";
         public static string OPAQUEEXPRESSION = "OpaqueExpression";
         public static string OUTPUTPIN = "OutputPin";
-        public static string PACKAGE = "Package";
+        // Parameter (Defined in cameo but no match currently found in EA)
+        public static string SENDSIGNALACTION = "SendSignalAction";
+        public static string SYNCHRONIZATION = "Synchronization";
+        // TimeEvent (Defined in cameo but no match currently found in EA)
+        // TimeExpression (Defined in cameo but no match currently found in EA)
+
+        /* SYSML BLOCK DEFINITION ELEMENT CONSTANTS */
+        public static string ASSOCIATIONBLOCK = "AssociationBlock";
+        public static string BLOCK = "Block";
+        public static string CONSTRAINT = "Constraint";
+        public static string CONSTRAINTBLOCK = "ConstraintBlock";
+        public static string DOMAIN = "Domain";
+        public static string ENUMERATION = "Enumeration";
+        public static string EXTERNAL = "External";
+        public static string FLOWPORT = "FlowPort";
+        public static string FLOWSPECIFICATION = "FlowSpecification";
+        public static string FULLPORT = "FullPort";
+        public static string INFORMATIONITEM = "InformationItem";
+        public static string INSTANCESPECIFICATION = "InstanceSpecification";
+        public static string INTERFACE = "Interface";
+        public static string INTERFACEBLOCK = "InterfaceBlock";
+        // Link (Defined in cameo but no match currently found in EA)
+        public static string NOTE = "Note";
+        public static string OPERATION = "Operation";
         public static string PARTPROPERTY = "PartProperty";
-        public static string PERFORMANCEREQUIREMENT = "PerformanceRequirement";
-        public static string PHYSICALREQUIREMENT = "PhysicalRequirement";
-        public static string PART = "Part";
         public static string PORT = "Port";
-        public static string PROFILE = "Profile";
-        public static string PROPERTY = "Property";
         public static string PROXYPORT = "ProxyPort";
         public static string QUANTITYKIND = "QuantityKind";
-        public static string REQUIREDINTERFACE = "RequiredInterface";
-        public static string REQUIREMENT = "Requirement";
-        public static string REGION = "Region";
-        public static string SENDSIGNALACTION = "SendSignalAction";
         public static string SIGNAL = "Signal";
-        public static string STATE = "State";
-        public static string STATENODE = "StateNode";
-        public static string STATEMACHINE = "StateMachine";
-        public static string STEREOTYPE = "Stereotype";
+        // Slot (Defined in cameo but no match currently found in EA)
         public static string SUBSYSTEM = "Subsystem";
-        public static string SYNCHRONIZATION = "Synchronization";
         public static string SYSTEM = "System";
         public static string SYSTEMCONTEXT = "SystemContext";
-        public static string TERMINATE = "Terminate";
-        public static string TEXT = "Text";
-        public static string TRIGGER = "Trigger";
         public static string UNIT = "Unit";
-        public static string USECASE = "UseCase";
         public static string VALUEPROPERTY = "ValueProperty";
         public static string VALUETYPE = "ValueType";
-        public static string RELATIONSHIPCONSTRAINT = "RelationshipConstraint";
-        public static string REFERENCEPROPERTY = "ReferenceProperty";
-        public static string CONSTRAINTPROPERTY = "ConstraintProperty";
+
+        /* SYSML INTERNAL BLOCK ELEMENT CONSTANTS */
         public static string BOUNDREFERENCE = "BoundReference";
+        public static string CLASSIFIERBEHAVIORPROPERTY = "ClassifierBehaviorProperty";
+        public static string CONSTRAINTPARAMETER = "ConstraintParameter";
+        public static string CONSTRAINTPROPERTY = "ConstraintProperty";
+        public static string FLOWPROPERTY = "FlowProperty";
         public static string PARTICIPANTPROPERTY = "ParticipantProperty";
+        public static string REFERENCEPROPERTY = "ReferenceProperty";
+        public static string REQUIREDINTERFACE = "RequiredInterface"; // Currently not used
+
+        /* SYSML PROFILE ELEMENT CONSTANTS */
+        public static string CLASS = "Class";
+        // Constraint (Defined in BDD types)
+        public static string PART = "Part";
+        // Customization (Defined in cameo but no match currently found in EA)
+        public static string METACLASS = "Metaclass";
+        // OpaqueExpression (Defined in BDD types)
+        public static string PROFILE = "Profile";
+        public static string RELATIONSHIPCONSTRAINT = "RelationshipConstraint";
+        public static string STEREOTYPE = "Stereotype";
+        // Term (Defined in cameo but no match currently found in EA)
+
+        /* SYSML REQUIREMENT ELEMENT CONSTANTS */
+        public static string DESIGNCONSTRAINT = "DesignConstraint";
+        public static string EXTENDEDREQUIREMENT = "ExtendedRequirement";
+        public static string FUNCTIONALREQUIREMENT = "FunctionalRequirement";
+        public static string INTERFACEREQUIREMENT = "InterfaceRequirement";
+        public static string PERFORMANCEREQUIREMENT = "PerformanceRequirement";
+        public static string PHYSICALREQUIREMENT = "PhysicalRequirement";
+        public static string REQUIREMENT = "Requirement";
+
+        /* SYSML SEQUENCE ELEMENT CONSTANTS */
+        public static string COLLABORATION = "Collaboration";
+        public static string COMBINEDFRAGMENT = "CombinedFragment";
+        // DestructionOccurrenceSpecification (Defined in cameo but no match currently found in EA)
+        // DurationConstraint (Defined in cameo but no match currently found in EA)
+        // DurationObservation (Defined in cameo but no match currently found in EA)
+        public static string INTERACTION = "Interaction";
+        // InteractionOperand (Defined in cameo but no match currently found in EA)
+        // InteractionUse (Defined in cameo but no match currently found in EA)
+        public static string LIFELINE = "Lifeline";
+        // MessageOccurrenceSpecification (Defined in cameo but no match currently found in EA)
+        public static string PROPERTY = "Property";
+        public static string INTERACTIONSTATE = "InteractionState";
+        public static string STATEINVARIANT = "StateInvariant";
+        // TimeConstraint (Defined in cameo but no match currently found in EA)
+        // TimeObservation (Defined in cameo but no match currently found in EA)
+
+        /* SYSML STATE MACHINE ELEMENT CONSTANTS */
+        public static string CHOICEPSUEDOSTATE = "ChoicePseudoState";
+        // ConnectionPointReference (Defined in cameo but no match currently found in EA)
+        public static string DEEPHISTORY = "DeepHistory";
+        public static string ENTRYPOINT = "EntryPoint";
+        public static string EXITPOINT = "ExitPoint";
+        public static string FINALSTATE = "FinalState";
+        // Fork (Defined in Activity types)
+        // FunctionalBehavior (Defined in cameo but no match currently found in EA)
+        public static string INITIALPSEUDOSTATE = "InitialPseudoState";
+        // Join (Defined in Activity types)
+        // OpaqueBehavior  (Defined in cameo but no match currently found in EA)
+        public static string STATENODE = "StateNode";
+        public static string REGION = "Region";
+        public static string SHALLOWHISTORY = "ShallowHistory";
+        /* Need to get back to this cameo creates a trigger for the signal*/
+        // public static string SIGNALEVENT = "SignalEvent";
+        public static string STATE = "State";
+        public static string STATEMACHINE = "StateMachine";
+        public static string TERMINATE = "Terminate";
+        public static string TRIGGER = "Trigger";
+
+        /* SYSML USE CASE ELEMENT CONSTANTS */
+        public static string ACTOR = "Actor";
+        public static string USECASE = "UseCase";
+        public static string BOUNDARY = "Boundary";
+
+
+        public static string ACTIONPIN = "ActionPin";
+        public static string BUSINESSREQUIREMENT = "BusinessRequirement";
+        public static string CLASSIFICATION = "Classification";
+        public static string EXCEPTIONHANDLER = "ExceptionHandler";
+        public static string HYPERLINK = "Hyperlink";
+        public static string INTERACTIONFRAGMENT = "InteractionFragment";
+        public static string INTERACTIONUSE = "InteractionUse";
+        public static string MODEL = "Model";
+        public static string OBJECTIVEFUNCTION = "ObjectiveFunction";
+        public static string PACKAGE = "Package";
+        public static string TEXT = "Text";
 
         // EA Constants
         public static string NAVIGATIONCELL = "NavigationCell";
@@ -147,40 +208,57 @@ namespace MTIP.Constants
         //	public static string PARAMETER = "Parameter";
 
         //Sysml Relationship Constants
+
+        // Activity relationships
+        public static string CONTROLFLOW = "ControlFlow";
+        public static string OBJECTFLOW = "ObjectFlow";
+
+        // BBD Relationships
+        // Realization/Realisation/InterfaceRealization
+        public static string REALIZATION = "Realization";
+        public static string REALISATION = "Realisation";
+
+        // IBD Relationships
+        public static string BINDINGCONNECTOR = "BindingConnector";
+        public static string CONNECTOR = "Connector";
+        public static string INFORMATIONFLOW = "InformationFlow";
+        public static string ITEMFLOW = "ItemFlow";
+
+        // Profile Relationships
+        public static string EXTENSION = "Extension";
+
+        // Requirement Replationships
+        public static string COPY = "Copy";
+        public static string DERIVEREQUIREMENT = "DeriveRequirement";
+        public static string REFINE = "Refine";
+        public static string SATISFY = "Satisfy";
+        public static string TRACE = "Trace";
+        public static string VERIFY = "Verify";
+
+        // Sequence Relationships
+        public static string MESSAGE = "Message";
+        public static string TRANSITION = "Transition";
+
+        // Use Case Relationships
+        public static string EXTEND = "Extend";
+        public static string INCLUDE = "Include ";
+
+
         public static string ABSTRACTION = "Abstraction";
         public static string AGGREGATION = "Aggregation";
         public static string ALLOCATE = "Allocate";
         public static string ARTIFACT = "Artifact";
         public static string ASSOCIATION = "Association";
-        public static string ASSOCIATIONBLOCK = "AssociationBlock";
-        public static string CONNECTOR = "Connector";
-        public static string CONTROLFLOW = "ControlFlow";
         public static string COMPOSITION = "Composition";
-        public static string COPY = "Copy";
         public static string DEPENDENCY = "Dependency";
-        public static string DERIVEREQUIREMENT = "DeriveRequirement";
-        public static string EXTEND = "Extend";
-        public static string EXTENSION = "Extension";
         public static string GENERALIZATION = "Generalization";
-        public static string INFORMATIONFLOW = "InformationFlow";
         public static string INTERRUPTFLOW = "InterruptFlow";
-        public static string ITEMFLOW = "ItemFlow";
-        public static string MESSAGE = "Message";
         public static string NESTING = "Nesting";
         public static string PARTASSOCIATION = "PartAssociation";
-        public static string REALIZATION = "Realization";
-        public static string REALISATION = "Realisation";
-        public static string REFINE = "Refine";
-        public static string SATISFY = "Satisfy";
         public static string SEQUENCE = "Sequence";
         public static string STATEFLOW = "StateFlow";
-        public static string TRACE = "Trace";
         public static string USECASERELATIONSHIP = "UseCaseRelationship";
         public static string USAGE = "Usage";
-        public static string TRANSITION = "Transition";
-        public static string VERIFY = "Verify";
-        public static string OBJECTFLOW = "ObjectFlow";
-        public static string BINDINGCONNECTOR = "BindingConnector";
 
 
         //Sysml Diagram constants
@@ -211,6 +289,7 @@ namespace MTIP.Constants
         public static string SYSMLCALLBEHAVIORACTION = "sysml.CallBehaviorAction";
         public static string SYSMLCALLOPERATIONACTION = "sysml.CallOperationAction";
         public static string SYSMLCENTRALBUFFERNODE = "sysml.CentralBufferNode";
+        public static string SYSMLCHANGE = "sysml.ChangeEvent";
         public static string SYSMLCHOICEPSEUDOSTATE = "sysml.ChoicePseudoState";
         public static string SYSMLCLASS = "sysml.Class";
         public static string SYSMLCLASSIFICATION = "sysml.Classification";
@@ -225,6 +304,7 @@ namespace MTIP.Constants
         public static string SYSMLCREATEOBJECTACTION = "sysml.CreateObjectAction";
         public static string SYSMLDATASTORENODE = "sysml.DataStoreNode";
         public static string SYSMLDECISIONNODE = "sysml.DecisionNode";
+        public static string SYSMLDEEPHISTORY = "sysml.DeepHistory";
         public static string SYSMLDESIGNCONSTRAINT = "sysml.DesignConstraint";
         public static string SYSMLDESTROYOBJECTACTION = "sysml.DestroyObjectAction";
         public static string SYSMLFLOWPORT = "sysml.FlowPort";
@@ -243,8 +323,8 @@ namespace MTIP.Constants
         public static string SYSMLFORK = "sysml.Fork";
         public static string SYSMLFORKNODE = "sysml.ForkNode";
         public static string SYSMLHYPERLINK = "sysml.Hyperlink";
-        public static string SYSMLHISTORYNODE = "sysml.HistoryNode";
         public static string SYSMLINITIALNODE = "sysml.InitialNode";
+        public static string SYSMLINFORMATIONITEM = "sysml.InformationItem";
         public static string SYSMLINITIALPSEUDOSTATE = "sysml.InitialPseudoState";
         public static string SYSMLINSTANCESPECIFICATION = "sysml.InstanceSpecification";
         public static string SYSMLINPUTPIN = "sysml.InputPin";
@@ -282,8 +362,10 @@ namespace MTIP.Constants
         public static string SYSMLREQUIREDINTERFACE = "sysml.RequiredInterface";
         public static string SYSMLREQUIREMENT = "sysml.Requirement";
         public static string SYSMLSENDSIGNALACTION = "sysml.SendSignalAction";
+        public static string SYSMLSHALLOWHISTORY = "sysml.ShallowHistory";
         public static string SYSMLSIGNAL = "sysml.Signal";
         public static string SYSMLSTATE = "sysml.State";
+        public static string SYSMLSTATEINVARIANT = "sysml.StateInvariant";
         public static string SYSMLSTATEMACHINE = "sysml.StateMachine";
         public static string SYSMLSTEREOTYPE = "sysml.Stereotype";
         public static string SYSMLSTRUCTUREDACTIVITYACTION = "sysml.StructuredActivityNode";
@@ -308,6 +390,7 @@ namespace MTIP.Constants
         public static string SYSMLEXTENSION = "sysml.Extension";
         public static string SYSMLGENERALIZATION = "sysml.Generalization";
         public static string SYSMLINFORMATIONFLOW = "sysml.InformationFlow";
+        public static string SYSMLINCLUDE = "sysml.Include";
         public static string SYSMLITEMFLOW = "sysml.ItemFlow";
         public static string SYSMLINTERRUPTFLOW = "sysml.InterruptFlow";
         public static string SYSMLNESTING = "sysml.Nesting";
@@ -343,6 +426,7 @@ namespace MTIP.Constants
             CALLOPERATIONACTION,
             CENTRALBUFFERNODE,
             CHOICEPSUEDOSTATE,
+            CHANGE,
             CLASS,
             CLASSIFICATION,
             CLASSIFIERBEHAVIORPROPERTY,
@@ -353,6 +437,7 @@ namespace MTIP.Constants
             CONSTRAINTBLOCK,
             CONSTRAINTPARAMETER,
             CREATEOBJECTACTION,
+            CALLOPERATIONACTION,
             DATASTORENODE,
             DECISION,
             DECISIONNODE,
@@ -377,11 +462,12 @@ namespace MTIP.Constants
             FORKNODE,
             FULLPORT,
             FUNCTIONALREQUIREMENT,
-            HISTORYNODE,
             HYPERLINK,
+            INFORMATIONITEM,
             INSTANCESPECIFICATION,
             INTERACTION,
             INTERACTIONFRAGMENT,
+            INTERACTIONSTATE,
             INTERACTIONUSE,
             INTERFACE,
             INTERFACEBLOCK,
@@ -421,6 +507,7 @@ namespace MTIP.Constants
             SENDSIGNALACTION,
             SIGNAL,
             STATE,
+            STATEINVARIANT,
             STATENODE,
             STATEMACHINE,
             STEREOTYPE,
@@ -461,6 +548,7 @@ namespace MTIP.Constants
                 EXTEND,
                 EXTENSION,
                 GENERALIZATION,
+                INCLUDE,
                 INFORMATIONFLOW,
                 INTERRUPTFLOW,
                 ITEMFLOW,

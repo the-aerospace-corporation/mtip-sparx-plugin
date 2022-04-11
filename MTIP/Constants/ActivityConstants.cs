@@ -17,15 +17,19 @@ namespace MTIP.Constants
 {
     public class ActivityConstants
     {
+        public string acceptEventAction;
         public string activity;
+        public string action;
+        public string actionPin;
         public string stateNode;
         public string activityParameter;
         public string activityPartion;
-        public string action;
-        public string actionPin;
         public string callBehaviorAction;
+        public string callOperationAction;
         public string centralBufferNode;
+        public string createObjectAction;
         public string property;
+        public string destroyObjectAction;
         public string conditionalNode;
         public string decision;
         public string eventType;
@@ -34,16 +38,24 @@ namespace MTIP.Constants
         public string objectNode;
         public string forkNode;
         public string synchronization;
+        public string sendSignalAction;
+        public string change;
+        public string informationItem;
 
 
         public ActivityConstants(){
             activity = "Activity";
             stateNode = "StateNode";
+            acceptEventAction = "AcceptEventAction";
             activityParameter = "ActivityParameter";
             activityPartion = "ActivityPartition";
             action = "Action";
             actionPin = "ActionPin";
+            callBehaviorAction = "CallBehaviorAction";
+            callOperationAction = "CallOperationAction";
             centralBufferNode = "CentralBufferNode";
+            createObjectAction = "CreateObjectAction";
+            destroyObjectAction = "DestroyObjectAction";
             property = "Property";
             conditionalNode = "ConditionalNode";
             decision = "Decision";
@@ -53,6 +65,9 @@ namespace MTIP.Constants
             objectNode = "ObjectNode";
             forkNode = "ForkNode";
             synchronization = "Synchronization";
+            sendSignalAction = "SendSignalAction";
+            change = "Change";
+            informationItem = "InformationItem";
         }
     }
 }
