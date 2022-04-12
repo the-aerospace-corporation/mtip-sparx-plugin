@@ -21,13 +21,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6B0FC6FE6D3ADA3E9FD5453D6947DE06"
+        "MsmKey" = "8:_6A774BC0C41043160C3CEDB658F085EF"
         "OwnerKey" = "8:_0E2200DEA6714C16ACB8140497B114F5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F770B6F1CE2AF3AA32025FA6C5A9055C"
+        "MsmKey" = "8:_6B0FC6FE6D3ADA3E9FD5453D6947DE06"
         "OwnerKey" = "8:_0E2200DEA6714C16ACB8140497B114F5"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -138,6 +138,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6A774BC0C41043160C3CEDB658F085EF"
+            {
+            "SourcePath" = "8:MTIP.tlb"
+            "TargetName" = "8:MTIP.tlb"
+            "Tag" = "8:"
+            "Folder" = "8:_2EE99A1C9DEA4016A69E87866A364607"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:2"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6B0FC6FE6D3ADA3E9FD5453D6947DE06"
             {
             "AssemblyRegister" = "3:1"
@@ -165,26 +185,6 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F770B6F1CE2AF3AA32025FA6C5A9055C"
-            {
-            "SourcePath" = "8:MTIP.tlb"
-            "TargetName" = "8:MTIP.tlb"
-            "Tag" = "8:"
-            "Folder" = "8:_2EE99A1C9DEA4016A69E87866A364607"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:2"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
@@ -344,26 +344,40 @@
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
-                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_596C9CF3C3474D25933EC46B4667DD75"
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_419EE44E4F1C40A1BC8F46976AAE402B"
                                     {
-                                    "Name" = "8:MTIPPlugins"
+                                    "Name" = "8:EAAddins"
                                     "Condition" = "8:"
                                     "AlwaysCreate" = "11:FALSE"
                                     "DeleteAtUninstall" = "11:FALSE"
                                     "Transitive" = "11:FALSE"
                                         "Keys"
                                         {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_CABC057C98294714877E81F6D976C4CE"
+                                            {
+                                            "Name" = "8:MTIPPlugins"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_2D0F3DD7216841E79B13D3C4590EED82"
+                                                    {
+                                                    "Name" = "8:(Default)"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:MTIP.MTIP"
+                                                    }
+                                                }
+                                            }
                                         }
                                         "Values"
                                         {
-                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_2D0F3DD7216841E79B13D3C4590EED82"
-                                            {
-                                            "Name" = "8:(Default)"
-                                            "Condition" = "8:"
-                                            "Transitive" = "11:FALSE"
-                                            "ValueTypes" = "3:1"
-                                            "Value" = "8:MTIP.MTIP"
-                                            }
                                         }
                                     }
                                 }
