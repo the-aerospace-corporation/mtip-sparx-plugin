@@ -27,12 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F770B6F1CE2AF3AA32025FA6C5A9055C"
-        "OwnerKey" = "8:_0E2200DEA6714C16ACB8140497B114F5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0E2200DEA6714C16ACB8140497B114F5"
         "MsmSig" = "8:_UNDEFINED"
@@ -169,26 +163,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F770B6F1CE2AF3AA32025FA6C5A9055C"
-            {
-            "SourcePath" = "8:MTIP.tlb"
-            "TargetName" = "8:MTIP.tlb"
-            "Tag" = "8:"
-            "Folder" = "8:_2EE99A1C9DEA4016A69E87866A364607"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:2"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -244,22 +218,22 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:MTIPInstaller"
-        "ProductCode" = "8:{61150EDE-BBCE-48DC-A577-C88CFA044547}"
-        "PackageCode" = "8:{1FF8A07C-BA75-487F-BE9E-BBE5032013DD}"
+        "ProductName" = "8:MTIP"
+        "ProductCode" = "8:{DE7DA4A9-F240-4AC8-93D8-9F297E99E3CF}"
+        "PackageCode" = "8:{AC8FBA2C-3E16-4800-8094-D7385CB72B69}"
         "UpgradeCode" = "8:{23596B83-2DEF-4D33-BF75-C0D69956284A}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.2"
-        "Manufacturer" = "8:Default Company Name"
+        "ProductVersion" = "8:1.0.1"
+        "Manufacturer" = "8:The Aerospace Corporation"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:MTIPInstaller"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:The Aerospace Corporation"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -344,26 +318,40 @@
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
-                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_596C9CF3C3474D25933EC46B4667DD75"
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_0C072CE1FB3C41F69602AD3DFA3D6E0E"
                                     {
-                                    "Name" = "8:MTIPPlugins"
+                                    "Name" = "8:EAAddins"
                                     "Condition" = "8:"
                                     "AlwaysCreate" = "11:FALSE"
                                     "DeleteAtUninstall" = "11:FALSE"
                                     "Transitive" = "11:FALSE"
                                         "Keys"
                                         {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_EA29A6A8375742F1AB9126E43D150C5B"
+                                            {
+                                            "Name" = "8:MTIP"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_2D0F3DD7216841E79B13D3C4590EED82"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:MTIP.MTIP"
+                                                    }
+                                                }
+                                            }
                                         }
                                         "Values"
                                         {
-                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_2D0F3DD7216841E79B13D3C4590EED82"
-                                            {
-                                            "Name" = "8:(Default)"
-                                            "Condition" = "8:"
-                                            "Transitive" = "11:FALSE"
-                                            "ValueTypes" = "3:1"
-                                            "Value" = "8:MTIP.MTIP"
-                                            }
                                         }
                                     }
                                 }
@@ -382,28 +370,6 @@
             {
                 "Keys"
                 {
-                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_26E9C14748E54871875ADBFA44844657"
-                    {
-                    "Name" = "8:MTIP.MTIP"
-                    "Condition" = "8:"
-                    "AlwaysCreate" = "11:FALSE"
-                    "DeleteAtUninstall" = "11:FALSE"
-                    "Transitive" = "11:FALSE"
-                        "Keys"
-                        {
-                        }
-                        "Values"
-                        {
-                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_7AA49325076D4954B87731F5E67869B0"
-                            {
-                            "Name" = "8:(Default)"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "ValueTypes" = "3:1"
-                            "Value" = "8:cbcfda76-c729-4a79-8822-51688d3cc255"
-                            }
-                        }
-                    }
                 }
             }
             "HKU"

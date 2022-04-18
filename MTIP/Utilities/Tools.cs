@@ -25,6 +25,7 @@ namespace MTIP.Utilities
         private static StreamWriter streamWriter = null;
         private static readonly string LOG_DIRNAME = "MTIPLogs";
 
+
         public static string PromptForFile(string dialogTitle)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -79,7 +80,7 @@ namespace MTIP.Utilities
         {
 
             //string logDirPath = Path.Combine(Path.GetTempPath(), LOG_DIRNAME);            
-            string logDirPath = Path.Combine("C:/users/klm31771/desktop/", LOG_DIRNAME);
+            string logDirPath = Path.Combine("path/to/directory/", LOG_DIRNAME);
 
             //string logDirPath = Path.Combine("./", LOG_DIRNAME);            
 

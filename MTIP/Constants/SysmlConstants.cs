@@ -38,7 +38,7 @@ namespace MTIP.Constants
 
 
         /* SYSML ACTIVITY ELEMENT CONSTANTS */
-        public static string ACCEPTEVENTACTION = "AccepctEventAction";
+        public static string ACCEPTEVENTACTION = "AcceptEventAction";
         public static string ACTION = "Action";
         public static string ACTIVITY = "Activity";
         public static string ACTIVITYFINALNODE = "ActivityFinalNode";
@@ -47,7 +47,7 @@ namespace MTIP.Constants
         public static string ACTIVITYPARAMETERNODE = "ActivityParameterNode"; // Sysml specifies as ActivityParameterNode
         public static string ACTIVITYPARTITION = "ActivityPartition";
         public static string CALLBEHAVIORACTION = "CallBehaviorAction";
-        public static string CALLOBJECTACTION = "CreateObjectAction ";
+        public static string CALLOBJECTACTION = "CreateObjectAction";
         public static string CALLOPERATIONACTION = "CallOperationAction";
         public static string CENTRALBUFFERNODE = "CentralBufferNode";
         public static string CHANGE = "Change";
@@ -241,7 +241,7 @@ namespace MTIP.Constants
 
         // Use Case Relationships
         public static string EXTEND = "Extend";
-        public static string INCLUDE = "Include ";
+        public static string INCLUDE = "Include";
 
 
         public static string ABSTRACTION = "Abstraction";

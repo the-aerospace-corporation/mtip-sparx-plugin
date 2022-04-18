@@ -28,7 +28,7 @@ namespace MTIP.Constants
             interactionFragment = "InteractionFragment";
             sequence = "Sequence";
             interaction = "Interaction";
-            interactionState = "InteractionState ";
+            interactionState = "InteractionState";
         }
     }
 }

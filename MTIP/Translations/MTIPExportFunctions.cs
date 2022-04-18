@@ -780,7 +780,6 @@ namespace MTIP.Translations
         public void UnpackageConnector(Connector connector, XmlDocument xmlDocument,
                                        string elementGuid, string elementName, string parentGuid, string parentType)
         {
-            Tools.Log(connector.Name + " - " + connector.Type + " - " + connector.MetaType + " - " + connector.Subtype + " - " + connector.Stereotype);
             try
             {
                 XmlElement dataElement = xmlDocument.CreateElement(hudsConstants.data);

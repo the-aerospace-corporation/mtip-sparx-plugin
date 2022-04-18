@@ -766,7 +766,8 @@ namespace MTIP.Translations
             }
             if (childElement.Type == SysmlConstants.ACTION)
             {
-                if (childItem.GetElementType() == SysmlConstants.ACCEPTEVENTACTION) {
+                if (childItem.GetElementType() == SysmlConstants.ACCEPTEVENTACTION)
+                {
                     childElement.MetaType = SysmlConstants.ACCEPTEVENTACTION;
                     childElement.Stereotype = SysmlConstants.ACCEPTEVENTACTION;
                 }
@@ -1099,14 +1100,14 @@ namespace MTIP.Translations
                                     associationConnector.Update();
                                     // Add the type of the metarelationship or stereotyped relationship as a tagged value
                                     // the GetAttribute is tied to the GetAttributes function
-                                    //if (stereotype == "stereotyped relationship")
-                                    //{
-                                    //    string meta_ster = relationshipItem.Value.GetAttribute("stereotyped relationship");
-                                    //    ConnectorTag meta_con = associationConnector.TaggedValues.GetByName("stereotype");
-                                    //    meta_con.Value = meta_ster;
-                                    //    meta_con.Update();
-                                    //}
-                                    if (stereotype == relationshipConstants.metarelationship)
+                                    if (stereotype == "stereotyped relationship")
+                                    {
+                                        string meta_ster = relationshipItem.Value.GetAttribute("stereotyped relationship");
+                                        ConnectorTag meta_con = associationConnector.TaggedValues.GetByName("stereotype");
+                                        meta_con.Value = meta_ster;
+                                        meta_con.Update();
+                                    }
+                                    else if (stereotype == relationshipConstants.metarelationship)
                                     {
                                         string meta_ster = relationshipItem.Value.GetAttribute(relationshipConstants.metarelationship);
                                         ConnectorTag meta_con = associationConnector.TaggedValues.GetByName(relationshipConstants.metaclass);
@@ -1240,11 +1241,12 @@ namespace MTIP.Translations
                     }
 
                     List<DiagramObjectItem> portsToAdd = new List<DiagramObjectItem>();
+                    List<DiagramObjectItem> actParamNodesToAdd = new List<DiagramObjectItem>();
 
                     foreach (DiagramObjectItem childDiagramObject in childObjects)
                     {
                         string childMappingId = childDiagramObject.GetMappingId();
-                        if (diagramItem.Value.GetMappingID() != childMappingId)
+                        if (diagramItem.Value.GetMappingID() != childMappingId && parsedXml[childDiagramObject.GetMappingId()].GetEAID() != "")
                         {
                             if (parsedXml.ContainsKey(childMappingId) && !orphanedIds.Contains(childMappingId) && !childItemIds.Contains(childMappingId))
                             {
@@ -1252,15 +1254,21 @@ namespace MTIP.Translations
                                 {
                                     XmlItem childItem = parsedXml[childMappingId];
                                     Boolean isPort = false;
+                                    Boolean isActParamNodeType = false;
                                     if (IsPortType(childItem.GetElementType()))
                                     {
                                         isPort = true;
                                         portsToAdd.Add(childDiagramObject);
                                     }
 
+                                    if (childItem.GetElementType() == SysmlConstants.ACTIVITYPARAMETERNODE)
+                                    {
+                                        isActParamNodeType = true;
+                                        actParamNodesToAdd.Add(childDiagramObject);
+                                    }
                                     childItemIds.Add(childMappingId);
                                     //if (childItem.GetCategory() != SysmlConstants.RELATIONSHIP && GetEAType(childItem.GetElementType(), stereotype) != "ActionPin" && isPort != true && GetEAType(childItem.GetElementType(), stereotype) != "Package")
-                                    if (childItem.GetCategory() != SysmlConstants.RELATIONSHIP && GetEAType(childItem.GetElementType(), stereotype) != "Package" && isPort != true)
+                                    if (childItem.GetCategory() != SysmlConstants.RELATIONSHIP && GetEAType(childItem.GetElementType(), stereotype) != "Package" && isPort == false && isActParamNodeType == false)
                                     {
                                         DiagramObject diagramObject = relationshipDiagram.DiagramObjects.AddNew("", "");
                                         if (hasCoors == true)
@@ -1332,6 +1340,24 @@ namespace MTIP.Translations
                                 }
                             }
                         }
+                    }
+                    foreach (DiagramObjectItem actParamNodeItem in actParamNodesToAdd)
+                    {
+                        string childMappingId = actParamNodeItem.GetMappingId();
+                        XmlItem childItem = parsedXml[childMappingId];
+
+                        DiagramObject diagramObject = relationshipDiagram.DiagramObjects.AddNew("", "");
+                        //if (hasCoors == true)
+                        //{
+                        //    diagramObject.left = Int32.Parse(actParamNodeItem.GetLeftCoor());
+                        //    diagramObject.right = Int32.Parse(actParamNodeItem.GetRightCoor());
+                        //    diagramObject.top = Int32.Parse(actParamNodeItem.GetTopCoor());
+                        //    diagramObject.bottom = Int32.Parse(actParamNodeItem.GetBottomCoor());
+                        //    if (actParamNodeItem.GetSequenceCoor() != "") diagramObject.Sequence = Int32.Parse(actParamNodeItem.GetSequenceCoor());
+
+                        //}
+                        diagramObject.ElementID = repository.GetElementByGuid(parsedXml[childMappingId].GetEAID()).ElementID;
+                        diagramObject.Update();
                     }
 
                     repository.ReloadDiagram(relationshipDiagram.DiagramID);
