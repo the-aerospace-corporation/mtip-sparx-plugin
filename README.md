@@ -31,7 +31,7 @@ Metamodel mapping implemented adheres to the to the SysML v1.5 specification whi
 
 ### Installation
 
-* Download the MTIPInstaller.msi or MTIPInstaller.exe from repository and run following installer instructions.
+* Download the MTIPInstaller.msi or setup.exe from repository (located under "Releases" on the right panel" and run following installer instructions.
 
 ### Building Instructions
 
