@@ -15,7 +15,7 @@ Metamodel mapping implemented adheres to the to the SysML v1.5 specification whi
 ### Prerequisites
 
 * [Sparx - Enterprise Architect](https://sparxsystems.us/go/enterprise-architect-cloud/?keyword=%2Bsparx%20%2Benterprise%20%2Barchitect&creative=498008725817&gclid=CjwKCAiAp8iMBhAqEiwAJb94z-PmUa41-smzhAaqj634_Tt1h6UZBraN4dHq_1yjsy-FZh98_RWlPhoCreEQAvD_BwE)
-  * The latest MTIP plugin is compatible with Version 14 or later
+  * The latest MTIP plugin is compatible with Version 14.x and 15.x
 * Visual Studio (2017/2019)
   * .NET desktop development installed
   * Microsoft Visual Studio Installer Project Extension
